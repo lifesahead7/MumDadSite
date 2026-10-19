@@ -348,6 +348,11 @@
                 <h3 class="text-2xl font-serif-custom text-gray-800">Admin Panel - Pending Approvals</h3>
                 <button onclick="closeModal('admin-modal')" class="text-gray-500 hover:text-gray-800"><i class="fa-solid fa-xmark text-xl"></i></button>
             </div>
+            <div id="admin-login-section" class="mb-6 p-4 bg-gray-100 rounded flex flex-col sm:flex-row gap-3 items-center">
+                <input type="email" id="admin-email" placeholder="Admin Email" class="border border-gray-300 px-3 py-2 rounded text-sm w-full sm:w-auto flex-grow focus:outline-none focus:border-[#a8a9ad]">
+                <input type="password" id="admin-password" placeholder="Password" class="border border-gray-300 px-3 py-2 rounded text-sm w-full sm:w-auto flex-grow focus:outline-none focus:border-[#a8a9ad]">
+                <button onclick="adminLogin()" class="bg-[#a8a9ad] text-white px-4 py-2 rounded text-xs uppercase tracking-wider hover:bg-gray-500 transition-colors shadow">Login</button>
+            </div>
             <div id="admin-pending-list" class="flex flex-col gap-4">
                 <div class="text-center text-gray-500 italic py-4">Loading pending messages...</div>
             </div>
@@ -364,56 +369,45 @@
 
     <!-- SPA & Sparkles Logic -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, updateDoc, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
-
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        
-        let app, db, auth, storage;
-        try {
-            app = initializeApp(firebaseConfig);
-            db = getFirestore(app);
-            auth = getAuth(app);
-            storage = getStorage(app);
-        } catch (e) {
-            console.error("Firebase init error", e);
-        }
-
         let allMessages = [];
-        let unsubscribe = null;
 
-        async function initApp() {
-            if (!auth) return;
-            try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-                
-                if (!auth.currentUser) return;
-
-                // Load all messages - filtered and sorted locally to respect strict Firestore indexing rules
-                const messagesRef = collection(db, 'artifacts', appId, 'public', 'data', 'goodwillMessages');
-                unsubscribe = onSnapshot(messagesRef, (snapshot) => {
-                    allMessages = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                    renderMessages();
-                }, (error) => {
-                    console.error("Error fetching messages:", error);
-                });
-            } catch (error) {
-                console.error("Initialization error:", error);
-                window.showAlert("Failed to connect to the server.");
+        async function fetchMessages() {
+            const { data: { session } } = await _supabase.auth.getSession();
+            if (session) {
+                document.getElementById('admin-login-section').classList.add('hidden');
             }
+
+            const { data, error } = await _supabase
+                .from('goodwill_messages')
+                .select('*')
+                .order('created_at', { ascending: true });
+
+            if (error) {
+                console.error("Error fetching messages:", error);
+                return;
+            }
+
+            allMessages = data || [];
+            renderMessages();
         }
+
+        window.adminLogin = async () => {
+            const email = document.getElementById('admin-email').value.trim();
+            const password = document.getElementById('admin-password').value;
+            const { error } = await _supabase.auth.signInWithPassword({ email, password });
+
+            if (error) {
+                window.showAlert("Admin login failed: " + error.message);
+            } else {
+                document.getElementById('admin-login-section').classList.add('hidden');
+                await fetchMessages();
+            }
+        };
 
         function renderMessages() {
-            // Main Gallery (Approved Only)
+            // Main Gallery (Approved Only - displayed in order uploaded)
             const gallery = document.getElementById('goodwill-gallery');
-            const approved = allMessages.filter(m => m.status === 'approved').sort((a,b) => b.timestamp - a.timestamp);
+            const approved = allMessages.filter(m => m.status === 'approved');
             
             if (approved.length === 0) {
                 gallery.innerHTML = '<div class="text-center text-gray-500 italic py-8 cursor-default">No messages yet. Be the first to share one!</div>';
@@ -421,11 +415,11 @@
                 gallery.innerHTML = approved.map(msg => `
                     <div class="flex flex-col sm:flex-row gap-8 items-start">
                         <div class="w-full sm:w-1/3 aspect-video bg-black/10 border border-gray-400 rounded-md flex items-center justify-center shadow-inner overflow-hidden">
-                            <video src="${msg.videoUrl}" controls class="w-full h-full object-cover outline-none"></video>
+                            <video src="${msg.video_url}" controls class="w-full h-full object-cover outline-none"></video>
                         </div>
                         <div class="w-full sm:w-2/3">
                             <h3 class="text-3xl font-serif-custom text-black hover:text-[#a8a9ad] transition-colors duration-300 mb-2 cursor-default">${msg.name}</h3>
-                            <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">${new Date(msg.timestamp).toLocaleDateString()}</p>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">${new Date(msg.created_at).toLocaleDateString()}</p>
                         </div>
                     </div>
                     <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-[#a8a9ad] to-transparent"></div>
@@ -434,41 +428,56 @@
 
             // Admin Panel (Pending Only)
             const adminList = document.getElementById('admin-pending-list');
-            const pending = allMessages.filter(m => m.status === 'pending').sort((a,b) => a.timestamp - b.timestamp);
+            const pending = allMessages.filter(m => m.status === 'pending');
             
             if (pending.length === 0) {
                 adminList.innerHTML = '<div class="text-center text-gray-500 italic py-4">No pending approvals.</div>';
             } else {
                 adminList.innerHTML = pending.map(msg => `
                     <div class="flex flex-col sm:flex-row gap-4 items-center bg-gray-50 p-4 rounded border border-gray-200">
-                        <video src="${msg.videoUrl}" controls class="w-32 h-20 object-cover rounded bg-black/10"></video>
+                        <video src="${msg.video_url}" controls class="w-32 h-20 object-cover rounded bg-black/10"></video>
                         <div class="flex-grow">
                             <h4 class="font-bold text-gray-800">${msg.name}</h4>
-                            <p class="text-xs text-gray-500">${new Date(msg.timestamp).toLocaleString()}</p>
+                            <p class="text-xs text-gray-500">${new Date(msg.created_at).toLocaleString()}</p>
                         </div>
-                        <button onclick="approveVideo('${msg.id}')" class="bg-[#a8a9ad] text-white px-4 py-2 rounded text-xs uppercase tracking-wider hover:bg-gray-500 transition-colors shadow">Approve</button>
+                        <div class="flex gap-2">
+                            <button onclick="approveVideo('${msg.id}')" class="bg-[#a8a9ad] text-white px-4 py-2 rounded text-xs uppercase tracking-wider hover:bg-gray-500 transition-colors shadow">Approve</button>
+                            <button onclick="deleteVideo('${msg.id}')" class="bg-red-400 text-white px-4 py-2 rounded text-xs uppercase tracking-wider hover:bg-red-600 transition-colors shadow">Delete</button>
+                        </div>
                     </div>
                 `).join('');
             }
         }
 
         window.approveVideo = async (docId) => {
-            if (!auth || !auth.currentUser) return;
-            try {
-                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'goodwillMessages', docId);
-                await updateDoc(docRef, { status: 'approved' });
-            } catch (error) {
+            const { error } = await _supabase
+                .from('goodwill_messages')
+                .update({ status: 'approved' })
+                .eq('id', docId);
+
+            if (error) {
                 console.error("Approve error", error);
-                window.showAlert("Failed to approve video.");
+                window.showAlert("Failed to approve video. Please log in as admin.");
+            } else {
+                await fetchMessages();
+            }
+        };
+
+        window.deleteVideo = async (docId) => {
+            const { error } = await _supabase
+                .from('goodwill_messages')
+                .delete()
+                .eq('id', docId);
+
+            if (error) {
+                console.error("Delete error", error);
+                window.showAlert("Failed to delete video.");
+            } else {
+                await fetchMessages();
             }
         };
 
         window.submitVideo = async () => {
-            if (!auth || !auth.currentUser) {
-                window.showAlert("You must be connected to upload.");
-                return;
-            }
-
             const nameInput = document.getElementById('upload-name');
             const fileInput = document.getElementById('upload-file');
             const file = fileInput.files[0];
@@ -505,47 +514,55 @@
                 }
 
                 progressContainer.classList.remove('hidden');
+                progressBar.style.width = '50%';
+                statusText.innerText = 'Uploading video...';
                 
                 const uniqueFilename = `${Date.now()}_${file.name.replace(/[^a-z0-9.]/gi, '_').toLowerCase()}`;
-                const fileRef = storageRef(storage, `artifacts/${appId}/videos/${uniqueFilename}`);
-                const uploadTask = uploadBytesResumable(fileRef, file);
+                const { error: uploadError } = await _supabase.storage
+                    .from('goodwill-videos')
+                    .upload(uniqueFilename, file, {
+                        cacheControl: '3600',
+                        upsert: false
+                    });
 
-                uploadTask.on('state_changed', 
-                    (snapshot) => {
-                        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                        progressBar.style.width = progress + '%';
-                        statusText.innerText = `Uploading... ${Math.round(progress)}%`;
-                    }, 
-                    (error) => {
-                        console.error("Upload error", error);
-                        submitBtn.disabled = false;
-                        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                        progressContainer.classList.add('hidden');
-                        window.showAlert("Failed to upload video.");
-                    }, 
-                    async () => {
-                        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-                        
-                        const messagesRef = collection(db, 'artifacts', appId, 'public', 'data', 'goodwillMessages');
-                        await addDoc(messagesRef, {
+                if (uploadError) {
+                    throw new Error("Failed to upload video: " + uploadError.message);
+                }
+
+                const { data: urlData } = _supabase.storage
+                    .from('goodwill-videos')
+                    .getPublicUrl(uniqueFilename);
+
+                progressBar.style.width = '90%';
+                statusText.innerText = 'Saving message...';
+
+                const { error: dbError } = await _supabase
+                    .from('goodwill_messages')
+                    .insert([
+                        {
                             name: name,
-                            videoUrl: downloadURL,
-                            status: 'pending',
-                            timestamp: Date.now()
-                        });
+                            message: '',
+                            video_url: urlData.publicUrl,
+                            status: 'pending'
+                        }
+                    ]);
 
-                        nameInput.value = '';
-                        fileInput.value = '';
-                        submitBtn.disabled = false;
-                        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                        progressContainer.classList.add('hidden');
-                        progressBar.style.width = '0%';
-                        statusText.innerText = 'Uploading...';
-                        
-                        window.closeModal('upload-modal');
-                        window.showAlert("Your message has been submitted and is pending approval!");
-                    }
-                );
+                if (dbError) {
+                    throw new Error("Failed to save message: " + dbError.message);
+                }
+
+                progressBar.style.width = '100%';
+                nameInput.value = '';
+                fileInput.value = '';
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                progressContainer.classList.add('hidden');
+                progressBar.style.width = '0%';
+                statusText.innerText = 'Uploading...';
+                
+                window.closeModal('upload-modal');
+                window.showAlert("Your message has been submitted and is pending approval!");
+                await fetchMessages();
             } catch (error) {
                 submitBtn.disabled = false;
                 submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
@@ -560,9 +577,10 @@
             setTimeout(() => modal.firstElementChild.classList.remove('scale-95'), 10);
         };
 
-        window.openAdminModal = () => {
+        window.openAdminModal = async () => {
             const modal = document.getElementById('admin-modal');
             modal.classList.add('show');
+            await fetchMessages();
         };
 
         window.closeModal = (id) => {
@@ -580,7 +598,7 @@
             document.getElementById('alert-modal').classList.add('show');
         };
 
-        initApp();
+        fetchMessages();
 
         window.showSection = function(sectionId) {
             const sections = document.querySelectorAll('.spa-section');
