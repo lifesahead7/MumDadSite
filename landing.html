@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy & Raphael's 25th Anniversary</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom Font Assignments */
+        .font-serif-custom {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-sans-custom {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Main Background Setup */
+        .invitation-card {
+            background-image: 
+                linear-gradient(90deg, #a8a9ad, #e2e2e2, transparent, #e2e2e2, #a8a9ad),
+                url('4351961.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 20px rgba(192, 192, 192, 0.3);
+        }
+
+        /* Silver Gradient Borders */
+        .silver-border-bottom {
+            position: relative;
+        }
+        .silver-border-bottom::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 5%;
+            width: 90%;
+            height: 7px;
+            background: linear-gradient(90deg, transparent, #e2e2e2, #a8a9ad, #e2e2e2, transparent);
+        }
+        .silver-border-top {
+            position: relative;
+        }
+        .silver-border-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 5%;
+            width: 90%;
+            height: 7px;
+            background: linear-gradient(90deg, transparent, #e2e2e2, #a8a9ad, #e2e2e2, transparent);
+        }
+        .silver-divider {
+            height: 7px;
+            background: linear-gradient(90deg, transparent, #a8a9ad, transparent);
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        /* Number 25 Styling */
+        .giant-number {
+            font-size: clamp(4rem, 13vw, 8rem);
+            line-height: 1.5;
+            background: linear-gradient(to bottom right, #4a4a52, #2c2c35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.25);
+        }
+
+        /* Navigation Links Hover Effect */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #718096;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Sparkles Canvas */
+        #sparkles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1; 
+        }
+        
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* SPA Section Transition Support */
+        .spa-section {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Modal Styles */
+        .custom-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .custom-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center font-sans-custom">
+
+    <!-- Main Invitation Container -->
+    <div class="invitation-card relative w-full min-h-screen overflow-hidden flex flex-col justify-between text-[#3b3c46]">
+        
+        <!-- Sparkles Overlay -->
+        <canvas id="sparkles-canvas"></canvas>
+
+        <!-- Top Navigation -->
+        <header class="content-layer w-full pt-8 pb-6 silver-border-bottom">
+            <nav class="container mx-auto px-4">
+                <ul class="flex flex-wrap justify-center items-center gap-6 sm:gap-12 text-[10px] sm:text-xs tracking-[0.2em] uppercase text-gray-600 font-medium">
+                    <li><a onclick="showSection('home')" class="nav-link hover:text-gray-900">Home</a></li>
+                    <li><a onclick="showSection('story')" class="nav-link hover:text-gray-900">Our Story</a></li>
+                    <li><a onclick="showSection('messages')" class="nav-link hover:text-gray-900">Goodwill Videos</a></li>
+                    <li><a onclick="showSection('gallery')" class="nav-link hover:text-gray-900">Gallery</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- SPA Content Area -->
+        <main class="content-layer flex-grow flex flex-col items-center justify-start w-full">
+
+            <!-- SECTION: HOME -->
+            <div id="home" class="spa-section w-full h-full flex flex-col items-center justify-center py-12 px-4 text-center my-auto">
+                <h2 class="text-4xl sm:text-5xl tracking-[0.3em] font-medium text-gray-600 uppercase mt-4 mb-2">
+                    <span class="text-gray-400 mx-2">Celebrating</span>
+                </h2>
+                <h1 class="font-serif-custom giant-number font-semibold italic text-[#3b3c46] mb-8" style="padding-right: 15px;">25 Years in Love</h1>
+                <h2 class="text-4xl sm:text-5xl tracking-[0.3em] font-medium text-gray-600 uppercase mt-4 mb-2">
+                    Joy <span class="text-gray-400 mx-2">&amp;</span> Raphael
+                </h2>
+                <div class="silver-divider my-4"></div>
+                <h3 class="font-serif-custom text-4xl sm:text-5xl md:text-6xl font-semibold italic text-[#3b3c46] mb-8">
+                    Silver Anniversary
+                </h3>
+                <div class="mt-4 border-t border-b border-gray-400/50 py-3 px-8 inline-block">
+                    <p class="text-sm sm:text-base tracking-[0.25em] uppercase text-gray-700 font-medium">
+                        October 31st, 2026
+                    </p>
+                </div>
+            </div>
+
+            <!-- SECTION: OUR STORY -->
+            <div id="story" class="spa-section hidden w-full max-w-5xl mx-auto py-16 px-6 sm:px-12 text-left">
+                <h2 class="font-serif-custom text-4xl text-center mb-16 text-gray-800">A Journey of 25 Years</h2>
+                
+                <!-- Story Part 1: Image Left -->
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-full md:w-1/2 aspect-[4/3] bg-white/40 border border-gray-300 rounded-md flex items-center justify-center shadow-sm backdrop-blur-sm">
+                        <i class="fa-regular fa-image text-4xl text-gray-400"></i>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-2xl font-serif-custom text-black mb-4">How It Began</h3>
+                        <p class="text-gray-700 leading-relaxed font-light">
+                            Joy and Raphael's story began over a quarter of a century ago. What started as a chance meeting quickly blossomed into a deep connection built on mutual respect, laughter, and an undeniable spark. Through the early years, they discovered a shared vision for the future, navigating life's early challenges hand-in-hand.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-[#a8a9ad] to-transparent my-12"></div>
+
+                <!-- Story Part 2: Image Right -->
+                <div class="flex flex-col md:flex-row-reverse gap-8 items-center">
+                    <div class="w-full md:w-1/2 aspect-[4/3] bg-white/40 border border-gray-300 rounded-md flex items-center justify-center shadow-sm backdrop-blur-sm">
+                        <i class="fa-regular fa-image text-4xl text-gray-400"></i>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-2xl font-serif-custom text-black mb-4">Building a Life Together</h3>
+                        <p class="text-gray-700 leading-relaxed font-light">
+                            Marriage brought new adventures. From their very first home to the chaotic, beautiful moments of raising a family, Joy and Raphael have always been each other's steadfast support. They've traveled, learned, and grown, proving that true love is about choosing each other every single day, no matter the circumstances.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-[#a8a9ad] to-transparent my-12"></div>
+
+                <!-- Story Part 3: Image Left -->
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-full md:w-1/2 aspect-[4/3] bg-white/40 border border-gray-300 rounded-md flex items-center justify-center shadow-sm backdrop-blur-sm">
+                        <i class="fa-regular fa-image text-4xl text-gray-400"></i>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-2xl font-serif-custom text-black mb-4">The Silver Milestone</h3>
+                        <p class="text-gray-700 leading-relaxed font-light">
+                            Today, 25 years later, their bond is stronger and more brilliant than ever—just like silver. As they reflect on the memories made and look forward to the future, Joy and Raphael invite you to celebrate this incredible milestone of enduring love and partnership.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: GOODWILL MESSAGES -->
+            <div id="messages" class="spa-section hidden w-full max-w-5xl mx-auto py-16 px-6 sm:px-12">
+                <h2 class="font-serif-custom text-4xl text-center mb-16 text-gray-800">Goodwill Videos & Messages</h2>
+                
+                <div class="text-center mb-16">
+                    <button onclick="openUploadModal()" class="bg-gradient-to-r from-[#a8a9ad] to-[#e2e2e2] text-gray-900 px-6 py-3 rounded font-medium shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 uppercase tracking-wider text-sm">
+                        Upload Your Video Message
+                    </button>
+                    <p class="text-xs text-gray-500 mt-2 uppercase tracking-wide">Max length: 30 seconds</p>
+                </div>
+
+                <div id="goodwill-gallery" class="w-full flex flex-col gap-10">
+                    <div class="text-center text-gray-500 italic py-8">Loading messages...</div>
+                </div>
+            </div>
+
+            <!-- SECTION: GALLERY -->
+            <div id="gallery" class="spa-section hidden w-full max-w-5xl mx-auto py-16 px-6 sm:px-12">
+                <h2 class="font-serif-custom text-4xl text-center mb-16 text-gray-800">Precious Memories</h2>
+                
+                <!-- Gallery Entry 1 -->
+                <div class="mb-8">
+                    <h3 class="text-3xl font-serif-custom text-black hover:text-[#a8a9ad] transition-colors duration-300 mb-6 text-center cursor-default">The Wedding Day - 2001</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="aspect-square bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
+                        <div class="aspect-square bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
+                        <div class="aspect-square bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
+                    </div>
+                </div>
+
+                <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-[#a8a9ad] to-transparent my-12"></div>
+
+                <!-- Gallery Entry 2 -->
+                <div class="mb-8">
+                    <h3 class="text-3xl font-serif-custom text-black hover:text-[#a8a9ad] transition-colors duration-300 mb-6 text-center cursor-default">Family Milestones</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="aspect-[3/4] bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
+                        <div class="aspect-[3/4] bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
+                        <div class="aspect-[3/4] bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
+                        <div class="aspect-[3/4] bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
+                    </div>
+                </div>
+                
+                <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-[#a8a9ad] to-transparent my-12"></div>
+            </div>
+
+        </main>
+
+        <!-- Bottom Details Section (Always visible footer) -->
+        <footer class="content-layer w-full pb-8 pt-6 silver-border-top">
+            <div class="container mx-auto px-6 sm:px-16 flex flex-col sm:flex-row justify-between items-center gap-8 text-center sm:text-left">
+                
+                <!-- Left: Place and Destination -->
+                <div class="flex flex-col items-center sm:items-start group">
+                    <div class="mb-3 text-gray-500 group-hover:text-[#3b3c46] transition-colors duration-300">
+                        <a href="https://www.st-teresa.com/about-us/about-the-parish/contact-us" target="_blank" rel="noopener noreferrer" class="cursor-pointer hover:text-blue-600 transition-colors duration-300">
+                            <i class="fa-solid fa-location-dot text-3xl"></i></a>
+                    </div>
+                    <h4 class="text-xs sm:text-sm font-bold tracking-widest uppercase mb-1 text-gray-800">St. Teresa of Avila Catholic Church</h4>
+                    <p class="text-xs tracking-wider text-gray-600 uppercase">Grovetown, GA</p>
+                </div>
+
+                <!-- Right: Dress Code -->
+                <div class="flex flex-col items-center sm:items-end group text-center sm:text-right">
+                    <div class="mb-3 text-gray-500 group-hover:text-[#3b3c46] transition-colors duration-300">
+                        <i class="fa-solid fa-user-tie text-3xl"></i> 
+                    </div>
+                    <h4 class="text-xs sm:text-sm font-bold tracking-widest uppercase mb-1 text-gray-800">Dress Code: Traditional or Semi-Formal</h4>
+                    <p class="text-xs tracking-wider text-gray-600 uppercase">Silver & Blue Accents Welcome</p>
+                    <a onclick="openAdminModal()" class="mt-4 text-[10px] text-gray-400 hover:text-gray-700 cursor-pointer uppercase tracking-widest transition-colors font-medium">Admin Link</a>
+                </div>
+                
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Modals -->
+    <!-- Upload Modal -->
+    <div id="upload-modal" class="custom-modal">
+        <div class="bg-white p-8 rounded-lg shadow-2xl max-w-md w-full border-t-4 border-[#a8a9ad] transform scale-95 transition-transform duration-300">
+            <h3 class="text-2xl font-serif-custom text-gray-800 mb-4 text-center">Share Your Goodwill Message</h3>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Your Name/Family Name</label>
+                <input type="text" id="upload-name" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-[#a8a9ad]" placeholder="e.g., The Smith Family">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Video (Max 30s)</label>
+                <input type="file" id="upload-file" accept="video/*" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-[#a8a9ad]">
+            </div>
+            <div id="upload-progress-container" class="hidden mb-4">
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div id="upload-progress-bar" class="bg-[#a8a9ad] h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p id="upload-status-text" class="text-xs text-center text-gray-500 mt-1">Uploading...</p>
+            </div>
+            <div class="flex justify-end gap-3 mt-6">
+                <button onclick="closeModal('upload-modal')" class="px-4 py-2 text-gray-600 hover:text-gray-800 uppercase text-xs tracking-wider font-medium">Cancel</button>
+                <button id="upload-submit-btn" onclick="submitVideo()" class="bg-[#a8a9ad] text-white px-6 py-2 rounded shadow hover:bg-gray-500 transition-colors uppercase text-xs tracking-wider font-medium">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Modal -->
+    <div id="admin-modal" class="custom-modal">
+        <div class="bg-white p-8 rounded-lg shadow-2xl max-w-3xl w-full max-h-[80vh] overflow-y-auto border-t-4 border-[#a8a9ad]">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-serif-custom text-gray-800">Admin Panel - Pending Approvals</h3>
+                <button onclick="closeModal('admin-modal')" class="text-gray-500 hover:text-gray-800"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div id="admin-pending-list" class="flex flex-col gap-4">
+                <div class="text-center text-gray-500 italic py-4">Loading pending messages...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Modal -->
+    <div id="alert-modal" class="custom-modal">
+        <div class="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full text-center border-t-4 border-[#a8a9ad]">
+            <p id="alert-message" class="text-gray-800 mb-6 font-medium"></p>
+            <button onclick="closeModal('alert-modal')" class="bg-[#a8a9ad] text-white px-6 py-2 rounded shadow hover:bg-gray-500 transition-colors uppercase text-xs tracking-wider font-medium">OK</button>
+        </div>
+    </div>
+
+    <!-- SPA & Sparkles Logic -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, updateDoc, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
+
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        
+        let app, db, auth, storage;
+        try {
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+            storage = getStorage(app);
+        } catch (e) {
+            console.error("Firebase init error", e);
+        }
+
+        let allMessages = [];
+        let unsubscribe = null;
+
+        async function initApp() {
+            if (!auth) return;
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+                
+                if (!auth.currentUser) return;
+
+                // Load all messages - filtered and sorted locally to respect strict Firestore indexing rules
+                const messagesRef = collection(db, 'artifacts', appId, 'public', 'data', 'goodwillMessages');
+                unsubscribe = onSnapshot(messagesRef, (snapshot) => {
+                    allMessages = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                    renderMessages();
+                }, (error) => {
+                    console.error("Error fetching messages:", error);
+                });
+            } catch (error) {
+                console.error("Initialization error:", error);
+                window.showAlert("Failed to connect to the server.");
+            }
+        }
+
+        function renderMessages() {
+            // Main Gallery (Approved Only)
+            const gallery = document.getElementById('goodwill-gallery');
+            const approved = allMessages.filter(m => m.status === 'approved').sort((a,b) => b.timestamp - a.timestamp);
+            
+            if (approved.length === 0) {
+                gallery.innerHTML = '<div class="text-center text-gray-500 italic py-8 cursor-default">No messages yet. Be the first to share one!</div>';
+            } else {
+                gallery.innerHTML = approved.map(msg => `
+                    <div class="flex flex-col sm:flex-row gap-8 items-start">
+                        <div class="w-full sm:w-1/3 aspect-video bg-black/10 border border-gray-400 rounded-md flex items-center justify-center shadow-inner overflow-hidden">
+                            <video src="${msg.videoUrl}" controls class="w-full h-full object-cover outline-none"></video>
+                        </div>
+                        <div class="w-full sm:w-2/3">
+                            <h3 class="text-3xl font-serif-custom text-black hover:text-[#a8a9ad] transition-colors duration-300 mb-2 cursor-default">${msg.name}</h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">${new Date(msg.timestamp).toLocaleDateString()}</p>
+                        </div>
+                    </div>
+                    <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-[#a8a9ad] to-transparent"></div>
+                `).join('');
+            }
+
+            // Admin Panel (Pending Only)
+            const adminList = document.getElementById('admin-pending-list');
+            const pending = allMessages.filter(m => m.status === 'pending').sort((a,b) => a.timestamp - b.timestamp);
+            
+            if (pending.length === 0) {
+                adminList.innerHTML = '<div class="text-center text-gray-500 italic py-4">No pending approvals.</div>';
+            } else {
+                adminList.innerHTML = pending.map(msg => `
+                    <div class="flex flex-col sm:flex-row gap-4 items-center bg-gray-50 p-4 rounded border border-gray-200">
+                        <video src="${msg.videoUrl}" controls class="w-32 h-20 object-cover rounded bg-black/10"></video>
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-gray-800">${msg.name}</h4>
+                            <p class="text-xs text-gray-500">${new Date(msg.timestamp).toLocaleString()}</p>
+                        </div>
+                        <button onclick="approveVideo('${msg.id}')" class="bg-[#a8a9ad] text-white px-4 py-2 rounded text-xs uppercase tracking-wider hover:bg-gray-500 transition-colors shadow">Approve</button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        window.approveVideo = async (docId) => {
+            if (!auth || !auth.currentUser) return;
+            try {
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'goodwillMessages', docId);
+                await updateDoc(docRef, { status: 'approved' });
+            } catch (error) {
+                console.error("Approve error", error);
+                window.showAlert("Failed to approve video.");
+            }
+        };
+
+        window.submitVideo = async () => {
+            if (!auth || !auth.currentUser) {
+                window.showAlert("You must be connected to upload.");
+                return;
+            }
+
+            const nameInput = document.getElementById('upload-name');
+            const fileInput = document.getElementById('upload-file');
+            const file = fileInput.files[0];
+            const name = nameInput.value.trim();
+
+            if (!name || !file) {
+                window.showAlert("Please provide both a name and a video file.");
+                return;
+            }
+
+            const submitBtn = document.getElementById('upload-submit-btn');
+            const progressContainer = document.getElementById('upload-progress-container');
+            const progressBar = document.getElementById('upload-progress-bar');
+            const statusText = document.getElementById('upload-status-text');
+
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            try {
+                // Determine length before allowing upload
+                const duration = await new Promise((resolve, reject) => {
+                    const video = document.createElement('video');
+                    video.preload = 'metadata';
+                    video.onloadedmetadata = () => {
+                        window.URL.revokeObjectURL(video.src);
+                        resolve(video.duration);
+                    };
+                    video.onerror = () => reject(new Error("Invalid video file format."));
+                    video.src = URL.createObjectURL(file);
+                });
+
+                if (duration > 30.9) { // Slight leeway for browser discrepancies
+                    throw new Error("Video length is " + Math.round(duration) + " seconds. Max length is 30 seconds.");
+                }
+
+                progressContainer.classList.remove('hidden');
+                
+                const uniqueFilename = `${Date.now()}_${file.name.replace(/[^a-z0-9.]/gi, '_').toLowerCase()}`;
+                const fileRef = storageRef(storage, `artifacts/${appId}/videos/${uniqueFilename}`);
+                const uploadTask = uploadBytesResumable(fileRef, file);
+
+                uploadTask.on('state_changed', 
+                    (snapshot) => {
+                        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        progressBar.style.width = progress + '%';
+                        statusText.innerText = `Uploading... ${Math.round(progress)}%`;
+                    }, 
+                    (error) => {
+                        console.error("Upload error", error);
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                        progressContainer.classList.add('hidden');
+                        window.showAlert("Failed to upload video.");
+                    }, 
+                    async () => {
+                        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+                        
+                        const messagesRef = collection(db, 'artifacts', appId, 'public', 'data', 'goodwillMessages');
+                        await addDoc(messagesRef, {
+                            name: name,
+                            videoUrl: downloadURL,
+                            status: 'pending',
+                            timestamp: Date.now()
+                        });
+
+                        nameInput.value = '';
+                        fileInput.value = '';
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                        progressContainer.classList.add('hidden');
+                        progressBar.style.width = '0%';
+                        statusText.innerText = 'Uploading...';
+                        
+                        window.closeModal('upload-modal');
+                        window.showAlert("Your message has been submitted and is pending approval!");
+                    }
+                );
+            } catch (error) {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                progressContainer.classList.add('hidden');
+                window.showAlert(error.message);
+            }
+        };
+
+        window.openUploadModal = () => {
+            const modal = document.getElementById('upload-modal');
+            modal.classList.add('show');
+            setTimeout(() => modal.firstElementChild.classList.remove('scale-95'), 10);
+        };
+
+        window.openAdminModal = () => {
+            const modal = document.getElementById('admin-modal');
+            modal.classList.add('show');
+        };
+
+        window.closeModal = (id) => {
+            const modal = document.getElementById(id);
+            modal.classList.remove('show');
+            if (id === 'upload-modal') {
+                document.getElementById('upload-progress-container').classList.add('hidden');
+                document.getElementById('upload-submit-btn').disabled = false;
+                document.getElementById('upload-submit-btn').classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+        };
+
+        window.showAlert = (msg) => {
+            document.getElementById('alert-message').innerText = msg;
+            document.getElementById('alert-modal').classList.add('show');
+        };
+
+        initApp();
+
+        window.showSection = function(sectionId) {
+            const sections = document.querySelectorAll('.spa-section');
+            sections.forEach(sec => sec.classList.add('hidden'));
+            const target = document.getElementById(sectionId);
+            if(target) {
+                target.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        };
+
+        const canvas = document.getElementById('sparkles-canvas');
+        const ctx = canvas.getContext('2d');
+        const container = document.querySelector('.invitation-card');
+        let particles = [];
+        
+        function resizeCanvas() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+        
+        const resizeObserver = new ResizeObserver(() => resizeCanvas());
+        resizeObserver.observe(container);
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const particleCount = 800; 
+        const colors = ['#FFFFFF', '#E0E0E0', '#C0C0C0', '#A9A9A9', '#040273', '#87CEFA'];
+
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5; 
+                this.baseOpacity = Math.random() * 0.5 + 0.2;
+                this.opacity = this.baseOpacity;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                if(this.color === '#ADD8E6' || this.color === '#87CEFA') {
+                    if(Math.random() > 0.4) this.color = '#FFFFFF'; 
+                }
+                this.twinkleSpeed = Math.random() * 0.02 + 0.005;
+                this.twinkleDir = Math.random() > 0.5 ? 1 : -1;
+                this.vx = (Math.random() - 0.5) * 0.2;
+                this.vy = (Math.random() * 0.2) + 0.1;
+            }
+            update() {
+                this.opacity += this.twinkleSpeed * this.twinkleDir;
+                if (this.opacity >= 1) {
+                    this.opacity = 1;
+                    this.twinkleDir = -1;
+                } else if (this.opacity <= 0.1) {
+                    this.opacity = 0.1;
+                    this.twinkleDir = 1;
+                }
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.y > canvas.height || this.x < 0 || this.x > canvas.width) {
+                    this.reset();
+                    this.y = 0; 
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.opacity;
+                ctx.fill();
+                if(this.size > 1.5) {
+                    ctx.shadowBlur = 5;
+                    ctx.shadowColor = this.color;
+                } else {
+                    ctx.shadowBlur = 0;
+                }
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            ctx.globalAlpha = 1.0; 
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
