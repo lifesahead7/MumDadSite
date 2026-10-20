@@ -519,7 +519,7 @@
                 
                 const uniqueFilename = `${Date.now()}_${file.name.replace(/[^a-z0-9.]/gi, '_').toLowerCase()}`;
                 const { error: uploadError } = await _supabase.storage
-                    .from('goodwill-videos')
+                    .from('goodwill-messages')
                     .upload(uniqueFilename, file, {
                         cacheControl: '3600',
                         upsert: false
@@ -530,7 +530,7 @@
                 }
 
                 const { data: urlData } = _supabase.storage
-                    .from('goodwill-videos')
+                    .from('goodwill-messages')
                     .getPublicUrl(uniqueFilename);
 
                 progressBar.style.width = '90%';
