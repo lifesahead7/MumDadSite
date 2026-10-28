@@ -7,8 +7,8 @@
         {
             "type": "msedge",
             "request": "launch",
-            "name": "Open landing.html",
-            "url": "file:///D:/Software%20Engineering%20Practice/PDF%20to%20Excel%20Converter/landing.html",
+            "name": "Open index.html",
+            "url": "file:///D:/Software%20Engineering%20Practice/PDF%20to%20Excel%20Converter/index.html",
             "userDataDir": true
         }
     ]

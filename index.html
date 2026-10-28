@@ -181,7 +181,7 @@
                 </h2>
                 <div class="silver-divider my-4"></div>
                 <h3 class="font-serif-custom text-4xl sm:text-5xl md:text-6xl font-semibold italic text-[#3b3c46] mb-8">
-                    Silver Anniversary
+                    Silver Jubilee Anniversary
                 </h3>
                 <div class="mt-4 border-t border-b border-gray-400/50 py-3 px-8 inline-block">
                     <p class="text-sm sm:text-base tracking-[0.25em] uppercase text-gray-700 font-medium">
@@ -238,47 +238,51 @@
                 </div>
             </div>
 
-            <!-- SECTION: GOODWILL MESSAGES -->
-            <div id="messages" class="spa-section hidden w-full max-w-5xl mx-auto py-16 px-6 sm:px-12">
-                <h2 class="font-serif-custom text-4xl text-center mb-16 text-gray-800">Goodwill Videos & Messages</h2>
-                
-                <div class="text-center mb-16">
-                    <button onclick="openUploadModal()" class="bg-gradient-to-r from-[#a8a9ad] to-[#e2e2e2] text-gray-900 px-6 py-3 rounded font-medium shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 uppercase tracking-wider text-sm">
-                        Upload Your Video Message
-                    </button>
-                    <p class="text-xs text-gray-500 mt-2 uppercase tracking-wide">Max length: 30 seconds</p>
-                </div>
-
-                <div id="goodwill-gallery" class="w-full flex flex-col gap-10">
-                    <div class="text-center text-gray-500 italic py-8">Loading messages...</div>
-                </div>
-            </div>
-
             <!-- SECTION: GALLERY -->
             <div id="gallery" class="spa-section hidden w-full max-w-5xl mx-auto py-16 px-6 sm:px-12">
                 <h2 class="font-serif-custom text-4xl text-center mb-16 text-gray-800">Precious Memories</h2>
                 
-                <!-- Gallery Entry 1 -->
-                <div class="mb-8">
-                    <h3 class="text-3xl font-serif-custom text-black hover:text-[#a8a9ad] transition-colors duration-300 mb-6 text-center cursor-default">The Wedding Day - 2001</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <div class="aspect-square bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
-                        <div class="aspect-square bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
-                        <div class="aspect-square bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
-                        <div class="aspect-square bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
+                <!-- Wedding Carousel -->
+                <div class="mb-12">
+                    <h3 class="text-3xl font-serif-custom text-black hover:text-[#a8a9ad] transition-colors duration-300 mb-6 text-center cursor-default">Joy & Raphael - Through the Years</h3>
+                    
+                    <!-- Carousel Container -->
+                    <div class="relative w-full md:w-3/4 mx-auto aspect-video md:aspect-[16/14] border border-gray-300 rounded-sm overflow-hidden shadow-sm bg-white group">
+                        <img id="wedding-main-img" src="D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.47.37 AM.jpeg" alt="Wedding Memory" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
+                        
+                        <!-- Navigation Arrows -->
+                        <button onclick="changeSlide('wedding', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 px-4 py-6 rounded-r shadow transition-all opacity-0 group-hover:opacity-100 hover:scale-105"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button onclick="changeSlide('wedding', 1)" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 px-4 py-6 rounded-l shadow transition-all opacity-0 group-hover:opacity-100 hover:scale-105"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <!-- Full Library Button -->
+                    <div class="text-center mt-6">
+                        <button onclick="openLibrary('wedding')" class="text-xs uppercase tracking-widest text-gray-500 hover:text-[#a8a9ad] transition-colors font-medium border-b border-transparent hover:border-[#a8a9ad] pb-1">
+                            <i class="fa-solid fa-table-cells mr-2"></i> Open Full Wedding Library
+                        </button>
                     </div>
                 </div>
 
                 <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-[#a8a9ad] to-transparent my-12"></div>
 
-                <!-- Gallery Entry 2 -->
+                <!-- Milestones Carousel -->
                 <div class="mb-8">
-                    <h3 class="text-3xl font-serif-custom text-black hover:text-[#a8a9ad] transition-colors duration-300 mb-6 text-center cursor-default">Family Milestones</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div class="aspect-[3/4] bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
-                        <div class="aspect-[3/4] bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
-                        <div class="aspect-[3/4] bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
-                        <div class="aspect-[3/4] bg-white/40 border border-gray-300 rounded-sm flex items-center justify-center backdrop-blur-sm"><i class="fa-regular fa-image text-3xl text-gray-400"></i></div>
+                    <h3 class="text-3xl font-serif-custom text-black hover:text-[#a8a9ad] transition-colors duration-300 mb-6 text-center cursor-default">Family Memories</h3>
+                    
+                    <!-- Carousel Container -->
+                    <div class="relative w-full md:w-3/4 mx-auto aspect-[square] md:aspect-square border border-gray-300 rounded-sm overflow-hidden shadow-sm bg-white group">
+                        <img id="milestones-main-img" src="D:/Software Engineering Practice/PDF to Excel Converter/Milestones/Scan_20261023 (31).jpg" alt="Family Memories" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
+                        
+                        <!-- Navigation Arrows -->
+                        <button onclick="changeSlide('milestones', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 px-4 py-6 rounded-r shadow transition-all opacity-0 group-hover:opacity-100 hover:scale-105"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button onclick="changeSlide('milestones', 1)" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 px-4 py-6 rounded-l shadow transition-all opacity-0 group-hover:opacity-100 hover:scale-105"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+
+                    <!-- Full Library Button -->
+                    <div class="text-center mt-6">
+                        <button onclick="openLibrary('milestones')" class="text-xs uppercase tracking-widest text-gray-500 hover:text-[#a8a9ad] transition-colors font-medium border-b border-transparent hover:border-[#a8a9ad] pb-1">
+                            <i class="fa-solid fa-table-cells mr-2"></i> Open Full Family Library
+                        </button>
                     </div>
                 </div>
                 
@@ -369,6 +373,19 @@
         <div class="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full text-center border-t-4 border-[#a8a9ad]">
             <p id="alert-message" class="text-gray-800 mb-6 font-medium"></p>
             <button onclick="closeModal('alert-modal')" class="bg-[#a8a9ad] text-white px-6 py-2 rounded shadow hover:bg-gray-500 transition-colors uppercase text-xs tracking-wider font-medium">OK</button>
+        </div>
+    </div>
+
+    <!-- Full Library Modal -->
+    <div id="library-modal" class="custom-modal">
+        <div class="bg-white p-8 rounded-lg shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto border-t-4 border-[#a8a9ad]">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="library-title" class="text-2xl font-serif-custom text-gray-800">Full Library</h3>
+                <button onclick="closeModal('library-modal')" class="text-gray-500 hover:text-gray-800 transition-colors"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            </div>
+            <!-- Grid injected by JS -->
+            <div id="library-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            </div>
         </div>
     </div>
 
@@ -628,6 +645,210 @@
                 target.classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
+        };
+
+        // Images here
+        const galleryData = {
+            wedding: [
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (32).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025 (8).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (2).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (3).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (11).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (12).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (13).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (15).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (33).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (2).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (3).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (4).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (5).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (6).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (7).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (8).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.47.37 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (9).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (10).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (11).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (12).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (13).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (14).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (15).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (16).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (17).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (18).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (19).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (20).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (21).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (22).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (24).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (25).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (26).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (27).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (28).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (29).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (30).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (31).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (32).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (33).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (34).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (35).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (36).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (37).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (38).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (39).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (40).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (41).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024.png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025 (2).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025 (3).png",                
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.30 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.31 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.32 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.33 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.35 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.37 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.38 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.39 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.40 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.42 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.44 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.45 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.46 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.47 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.50 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.51 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.52 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.54 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.55 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.56 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.57 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.58 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.59 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.60 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.61 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.62 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.64 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.65 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.66 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.67 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.68 AM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.71 PM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.72 PM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.74 PM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.75 PM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.78 PM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.81 PM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.85 PM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.86 PM.jpeg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20220206_111158.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20220711_150700.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20230531_205324.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221111694_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221112595_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221114493_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221115059_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221119358_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221120523_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221121556_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221131520_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221132753_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221133752_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221738616_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221739749_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (4).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (5).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (6).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (8).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (9).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (10).png",                
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221740717_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221741483_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20250809_195415426_iOS.heic",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20250809_195426847_iOS.heic",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20250809_195430533_iOS.heic",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20250809_195432882_iOS.heic",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191725682_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191725788_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191812156_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191812249_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191812286_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191812321_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191812356_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191812395_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849111_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849111_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849157_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849189_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849219_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849258_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849299_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849328_iOS.jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20260801_002944852_iOS.heic",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025.png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Family picture (mum and dad).jpg",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025 (5).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025 (6).png",
+                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025 (7).png",
+            ],
+            milestones: [
+                'Scan_20261023 (31).jpg',
+                'Scan_20261023 (30).jpg',
+                'milestone-3.jpg',
+                'milestone-4.jpg'
+            ]
+        };
+
+        // Track which slide each carousel is currently on
+        let currentSlides = {
+            wedding: 0,
+            milestones: 0
+        };
+
+        // 2. Slideshow Navigation Function with Fade Effect
+        window.changeSlide = (category, direction) => {
+            const images = galleryData[category];
+            currentSlides[category] += direction;
+            
+            // Loop around if we reach the end or beginning
+            if (currentSlides[category] < 0) currentSlides[category] = images.length - 1;
+            if (currentSlides[category] >= images.length) currentSlides[category] = 0;
+            
+            const imgEl = document.getElementById(`${category}-main-img`);
+            
+            // Smooth fade out
+            imgEl.style.opacity = '0.3'; 
+            
+            setTimeout(() => {
+                // Swap the image source while it's faded out
+                imgEl.src = images[currentSlides[category]];
+                // Smooth fade back in
+                imgEl.style.opacity = '1';
+            }, 300); // 300ms matches the Tailwind duration-300 class
+        };
+
+        // 3. Open the Full Library Modal
+        window.openLibrary = (category) => {
+            const titleEl = document.getElementById('library-title');
+            const gridEl = document.getElementById('library-grid');
+            const images = galleryData[category];
+            
+            // Set Modal Title
+            titleEl.innerText = category === 'wedding' ? 'The Wedding Day - 2001' : 'Family Milestones';
+            
+            // Determine aspect ratio class based on category
+            const aspectClass = category === 'wedding' ? 'aspect-square' : 'aspect-[3/4]';
+            
+            // Populate the grid
+            gridEl.innerHTML = images.map(src => `
+                <div class="${aspectClass} border border-gray-300 rounded-sm overflow-hidden shadow-sm bg-white">
+                    <img src="${src}" alt="Gallery Image" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700 cursor-pointer">
+                </div>
+            `).join('');
+            
+            // Open the Modal
+            const modal = document.getElementById('library-modal');
+            modal.classList.add('show');
         };
 
         const canvas = document.getElementById('sparkles-canvas');
