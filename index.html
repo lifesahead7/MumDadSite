@@ -197,12 +197,12 @@
                 <!-- Story Part 1: Image Left -->
                 <div class="flex flex-col md:flex-row gap-8 items-center">
                     <div class="w-full md:w-1/2 aspect-[4/3] bg-white/40 border border-gray-300 rounded-md flex items-center justify-center shadow-sm backdrop-blur-sm">
-                        <i class="fa-regular fa-image text-4xl text-gray-400"></i>
+                        <img id="wedding-main-img" src="Wedding/WhatsApp Image 2026-10-26 at 11.47.37 AM.jpeg" alt="Youth Corpers" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
                     </div>
                     <div class="w-full md:w-1/2">
                         <h3 class="text-2xl font-serif-custom text-black mb-4">How It Began</h3>
                         <p class="text-gray-700 leading-relaxed font-light">
-                            Joy and Raphael's story began over a quarter of a century ago. What started as a chance meeting quickly blossomed into a deep connection built on mutual respect, laughter, and an undeniable spark. Through the early years, they discovered a shared vision for the future, navigating life's early challenges hand-in-hand.
+                            Joy and Raphael's story began over a quarter of a century ago as NYSC corpers. What started as a chance meeting quickly blossomed into a deep connection built on mutual respect, laughter, and an undeniable spark. Through the early years, they discovered a shared vision for the future, and learned to navigate life's early challenges hand-in-hand.
                         </p>
                     </div>
                 </div>
@@ -212,7 +212,7 @@
                 <!-- Story Part 2: Image Right -->
                 <div class="flex flex-col md:flex-row-reverse gap-8 items-center">
                     <div class="w-full md:w-1/2 aspect-[4/3] bg-white/40 border border-gray-300 rounded-md flex items-center justify-center shadow-sm backdrop-blur-sm">
-                        <i class="fa-regular fa-image text-4xl text-gray-400"></i>
+                        <img id="family-main-img" src="Family/Scan_20261023 (31).jpg" alt="Family Portrait" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
                     </div>
                     <div class="w-full md:w-1/2">
                         <h3 class="text-2xl font-serif-custom text-black mb-4">Building a Life Together</h3>
@@ -227,7 +227,7 @@
                 <!-- Story Part 3: Image Left -->
                 <div class="flex flex-col md:flex-row gap-8 items-center">
                     <div class="w-full md:w-1/2 aspect-[4/3] bg-white/40 border border-gray-300 rounded-md flex items-center justify-center shadow-sm backdrop-blur-sm">
-                        <i class="fa-regular fa-image text-4xl text-gray-400"></i>
+                        <img id="milestones-main-img" src="Milestones/Scan_20261023 (31).jpg" alt="Current Family" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
                     </div>
                     <div class="w-full md:w-1/2">
                         <h3 class="text-2xl font-serif-custom text-black mb-4">The Silver Milestone</h3>
@@ -235,6 +235,22 @@
                             Today, 25 years later, their bond is stronger and more brilliant than ever—just like silver. As they reflect on the memories made and look forward to the future, Joy and Raphael invite you to celebrate this incredible milestone of enduring love and partnership.
                         </p>
                     </div>
+                </div>
+            </div>
+
+            <!-- SECTION: GOODWILL MESSAGES -->
+            <div id="messages" class="spa-section hidden w-full max-w-5xl mx-auto py-16 px-6 sm:px-12">
+                <h2 class="font-serif-custom text-4xl text-center mb-16 text-gray-800">Goodwill Videos & Messages</h2>
+                
+                <div class="text-center mb-16">
+                    <button onclick="openUploadModal()" class="bg-gradient-to-r from-[#a8a9ad] to-[#e2e2e2] text-gray-900 px-6 py-3 rounded font-medium shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 uppercase tracking-wider text-sm">
+                        Upload Your Video Message
+                    </button>
+                    <p class="text-xs text-gray-500 mt-2 uppercase tracking-wide">Max length: 30 seconds</p>
+                </div>
+
+                <div id="goodwill-gallery" class="w-full flex flex-col gap-10">
+                    <div class="text-center text-gray-500 italic py-8">Loading messages...</div>
                 </div>
             </div>
 
@@ -248,7 +264,7 @@
                     
                     <!-- Carousel Container -->
                     <div class="relative w-full md:w-3/4 mx-auto aspect-video md:aspect-[16/14] border border-gray-300 rounded-sm overflow-hidden shadow-sm bg-white group">
-                        <img id="wedding-main-img" src="D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.47.37 AM.jpeg" alt="Wedding Memory" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
+                        <img id="wedding-main-img" src="Wedding/WhatsApp Image 2026-10-26 at 11.47.37 AM.jpeg" alt="Wedding Memory" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
                         
                         <!-- Navigation Arrows -->
                         <button onclick="changeSlide('wedding', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 px-4 py-6 rounded-r shadow transition-all opacity-0 group-hover:opacity-100 hover:scale-105"><i class="fa-solid fa-chevron-left"></i></button>
@@ -271,7 +287,7 @@
                     
                     <!-- Carousel Container -->
                     <div class="relative w-full md:w-3/4 mx-auto aspect-[square] md:aspect-square border border-gray-300 rounded-sm overflow-hidden shadow-sm bg-white group">
-                        <img id="milestones-main-img" src="D:/Software Engineering Practice/PDF to Excel Converter/Milestones/Scan_20261023 (31).jpg" alt="Family Memories" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
+                        <img id="milestones-main-img" src="Family/Scan_20261023 (31).jpg" alt="Family Memories" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
                         
                         <!-- Navigation Arrows -->
                         <button onclick="changeSlide('milestones', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 px-4 py-6 rounded-r shadow transition-all opacity-0 group-hover:opacity-100 hover:scale-105"><i class="fa-solid fa-chevron-left"></i></button>
@@ -650,146 +666,146 @@
         // Images here
         const galleryData = {
             wedding: [
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (32).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025 (8).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (2).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (3).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (11).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (12).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (13).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (15).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (33).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (2).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (3).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (4).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (5).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (6).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (7).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (8).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.47.37 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (9).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (10).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (11).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (12).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (13).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (14).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (15).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (16).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (17).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (18).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (19).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (20).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (21).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (22).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (24).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (25).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (26).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (27).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (28).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (29).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (30).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (31).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (32).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (33).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (34).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (35).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (36).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (37).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (38).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (39).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (40).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024 (41).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261024.png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025 (2).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025 (3).png",                
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.30 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.31 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.32 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.33 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.35 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.37 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.38 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.39 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.40 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.42 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.44 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.45 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.46 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.47 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.50 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.51 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.52 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.54 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.55 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.56 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.57 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.58 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.59 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.60 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.61 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.62 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.64 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.65 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.66 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.67 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 11.58.68 AM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.71 PM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.72 PM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.74 PM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.75 PM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.78 PM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.81 PM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.85 PM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/WhatsApp Image 2026-10-26 at 12.02.86 PM.jpeg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20220206_111158.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20220711_150700.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20230531_205324.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221111694_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221112595_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221114493_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221115059_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221119358_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221120523_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221121556_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221131520_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221132753_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221133752_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221738616_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221739749_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (4).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (5).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (6).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (8).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (9).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261023 (10).png",                
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221740717_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20241026_221741483_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20250809_195415426_iOS.heic",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20250809_195426847_iOS.heic",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20250809_195430533_iOS.heic",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20250809_195432882_iOS.heic",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191725682_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191725788_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191812156_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191812249_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191812286_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191812321_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191812356_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191812395_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849111_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849111_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849157_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849189_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849219_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849258_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849299_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20251028_191849328_iOS.jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/20260801_002944852_iOS.heic",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025.png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Family picture (mum and dad).jpg",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025 (5).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025 (6).png",
-                "D:/Software Engineering Practice/PDF to Excel Converter/Wedding/Scan_20261025 (7).png",
+                "Wedding/Scan_20261024 (32).png",
+                "Wedding/Scan_20261025 (8).png",
+                "Wedding/Scan_20261023 (2).png",
+                "Wedding/Scan_20261023 (3).png",
+                "Wedding/Scan_20261023 (11).png",
+                "Wedding/Scan_20261023 (12).png",
+                "Wedding/Scan_20261023 (13).png",
+                "Wedding/Scan_20261023 (15).png",
+                "Wedding/Scan_20261023 (33).png",
+                "Wedding/Scan_20261024 (2).png",
+                "Wedding/Scan_20261024 (3).png",
+                "Wedding/Scan_20261024 (4).png",
+                "Wedding/Scan_20261024 (5).png",
+                "Wedding/Scan_20261024 (6).png",
+                "Wedding/Scan_20261024 (7).png",
+                "Wedding/Scan_20261024 (8).png",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.47.37 AM.jpeg",
+                "Wedding/Scan_20261024 (9).png",
+                "Wedding/Scan_20261024 (10).png",
+                "Wedding/Scan_20261024 (11).png",
+                "Wedding/Scan_20261024 (12).png",
+                "Wedding/Scan_20261024 (13).png",
+                "Wedding/Scan_20261024 (14).png",
+                "Wedding/Scan_20261024 (15).png",
+                "Wedding/Scan_20261024 (16).png",
+                "Wedding/Scan_20261024 (17).png",
+                "Wedding/Scan_20261024 (18).png",
+                "Wedding/Scan_20261024 (19).png",
+                "Wedding/Scan_20261024 (20).png",
+                "Wedding/Scan_20261024 (21).png",
+                "Wedding/Scan_20261024 (22).png",
+                "Wedding/Scan_20261024 (24).png",
+                "Wedding/Scan_20261024 (25).png",
+                "Wedding/Scan_20261024 (26).png",
+                "Wedding/Scan_20261024 (27).png",
+                "Wedding/Scan_20261024 (28).png",
+                "Wedding/Scan_20261024 (29).png",
+                "Wedding/Scan_20261024 (30).png",
+                "Wedding/Scan_20261024 (31).png",
+                "Wedding/Scan_20261024 (32).png",
+                "Wedding/Scan_20261024 (33).png",
+                "Wedding/Scan_20261024 (34).png",
+                "Wedding/Scan_20261024 (35).png",
+                "Wedding/Scan_20261024 (36).png",
+                "Wedding/Scan_20261024 (37).png",
+                "Wedding/Scan_20261024 (38).png",
+                "Wedding/Scan_20261024 (39).png",
+                "Wedding/Scan_20261024 (40).png",
+                "Wedding/Scan_20261024 (41).png",
+                "Wedding/Scan_20261024.png",
+                "Wedding/Scan_20261025 (2).png",
+                "Wedding/Scan_20261025 (3).png",                
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.30 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.31 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.32 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.33 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.35 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.37 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.38 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.39 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.40 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.42 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.44 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.45 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.46 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.47 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.50 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.51 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.52 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.54 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.55 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.56 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.57 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.58 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.59 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.60 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.61 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.62 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.64 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.65 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.66 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.67 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.58.68 AM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 12.02.71 PM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 12.02.72 PM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 12.02.74 PM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 12.02.75 PM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 12.02.78 PM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 12.02.81 PM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 12.02.85 PM.jpeg",
+                "Wedding/WhatsApp Image 2026-10-26 at 12.02.86 PM.jpeg",
+                "Wedding/20220206_111158.jpg",
+                "Wedding/20220711_150700.jpg",
+                "Wedding/20230531_205324.jpg",
+                "Wedding/20241026_221111694_iOS.jpg",
+                "Wedding/20241026_221112595_iOS.jpg",
+                "Wedding/20241026_221114493_iOS.jpg",
+                "Wedding/20241026_221115059_iOS.jpg",
+                "Wedding/20241026_221119358_iOS.jpg",
+                "Wedding/20241026_221120523_iOS.jpg",
+                "Wedding/20241026_221121556_iOS.jpg",
+                "Wedding/20241026_221131520_iOS.jpg",
+                "Wedding/20241026_221132753_iOS.jpg",
+                "Wedding/20241026_221133752_iOS.jpg",
+                "Wedding/20241026_221738616_iOS.jpg",
+                "Wedding/20241026_221739749_iOS.jpg",
+                "Wedding/Scan_20261023 (4).png",
+                "Wedding/Scan_20261023 (5).png",
+                "Wedding/Scan_20261023 (6).png",
+                "Wedding/Scan_20261023 (8).png",
+                "Wedding/Scan_20261023 (9).png",
+                "Wedding/Scan_20261023 (10).png",                
+                "Wedding/20241026_221740717_iOS.jpg",
+                "Wedding/20241026_221741483_iOS.jpg",
+                "Wedding/Scan_20261025 (5).png",                
+                "Wedding/20251028_191725682_iOS.jpg",
+                "Wedding/20251028_191725788_iOS.jpg",
+                "Wedding/20251028_191812156_iOS.jpg",
+                "Wedding/20251028_191812249_iOS.jpg",
+                "Wedding/20251028_191812286_iOS.jpg",
+                "Wedding/20251028_191812321_iOS.jpg",
+                "Wedding/20251028_191812356_iOS.jpg",
+                "Wedding/20251028_191812395_iOS.jpg",
+                "Wedding/20251028_191849111_iOS.jpg",
+                "Wedding/20251028_191849111_iOS.jpg",
+                "Wedding/20251028_191849157_iOS.jpg",
+                "Wedding/20251028_191849189_iOS.jpg",
+                "Wedding/20251028_191849219_iOS.jpg",
+                "Wedding/20251028_191849258_iOS.jpg",
+                "Wedding/20251028_191849299_iOS.jpg",
+                "Wedding/20251028_191849328_iOS.jpg",
+                "Wedding/20260801_002944852_iOS.jpg",
+                "Wedding/Scan_20261025.png",
+                "Wedding/Family picture (mum and dad).jpg",
+                "Wedding/Scan_20261025 (6).png",
+                "Wedding/Scan_20261025 (7).png",                
+                "Wedding/20250809_195415426_iOS.jpg",
+                "Wedding/20250809_195426847_iOS.jpg",
+                "Wedding/20250809_195430533_iOS.jpg",
+                "Wedding/20250809_195432882_iOS.jpg",
             ],
             milestones: [
                 'Scan_20261023 (31).jpg',
