@@ -13,11 +13,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
-    const supabaseUrl = 'https://zqrorfjnixaetzflhkjg.supabase.co';
-    const supabaseKey = 'sb_publishable_6GHK3Ww6b9ktyuX50dYbfA_wboI38cW';
-    const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
-    </script>
     <style>
         /* Custom Font Assignments */
         .font-serif-custom {
@@ -160,7 +155,7 @@
             <nav class="container mx-auto px-4">
                 <ul class="flex flex-wrap justify-center items-center gap-6 sm:gap-12 text-[10px] sm:text-xs tracking-[0.2em] uppercase text-gray-600 font-medium">
                     <li><a onclick="showSection('home')" class="nav-link hover:text-gray-900">Home</a></li>
-                    <li><a onclick="showSection('story')" class="nav-link hover:text-gray-900">Our Story</a></li>
+                    <li><a onclick="showSection('story')" class="nav-link hover:text-gray-900">Their Journey</a></li>
                     <li><a onclick="showSection('messages')" class="nav-link hover:text-gray-900">Goodwill Videos</a></li>
                     <li><a onclick="showSection('gallery')" class="nav-link hover:text-gray-900">Gallery</a></li>
                 </ul>
@@ -190,19 +185,19 @@
                 </div>
             </div>
 
-            <!-- SECTION: OUR STORY -->
+            <!-- SECTION: THEIR JOURNEY -->
             <div id="story" class="spa-section hidden w-full max-w-5xl mx-auto py-16 px-6 sm:px-12 text-left">
                 <h2 class="font-serif-custom text-4xl text-center mb-16 text-gray-800">A Journey of 25 Years</h2>
                 
                 <!-- Story Part 1: Image Left -->
                 <div class="flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-full md:w-1/2 aspect-[4/3] bg-white/40 border border-gray-300 rounded-md flex items-center justify-center shadow-sm backdrop-blur-sm">
-                        <img id="wedding-main-img" src="Wedding/WhatsApp Image 2026-10-26 at 11.47.37 AM.jpeg" alt="Youth Corpers" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
+                    <div class="w-full md:w-1/2 aspect-[4/4] bg-white/40 border border-gray-300 rounded-md flex items-center justify-center shadow-sm backdrop-blur-sm">
+                        <img src="Wedding/WhatsApp Image 2026-10-26 at 11.47.37 AM.jpeg" alt="Youth Corpers" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
                     </div>
                     <div class="w-full md:w-1/2">
                         <h3 class="text-2xl font-serif-custom text-black mb-4">How It Began</h3>
                         <p class="text-gray-700 leading-relaxed font-light">
-                            Joy and Raphael's story began over a quarter of a century ago as NYSC corpers. What started as a chance meeting quickly blossomed into a deep connection built on mutual respect, laughter, and an undeniable spark. Through the early years, they discovered a shared vision for the future, and learned to navigate life's early challenges hand-in-hand.
+                            Joy and Raphael's story began over a quarter of a century ago as NYSC corpers. What started as a chance meeting quickly blossomed into a deep connection built on faith in God, mutual respect, laughter, and an undeniable spark. Through the early years, they discovered a shared vision for the future, and learned to navigate life's early challenges hand-in-hand.
                         </p>
                     </div>
                 </div>
@@ -211,13 +206,13 @@
 
                 <!-- Story Part 2: Image Right -->
                 <div class="flex flex-col md:flex-row-reverse gap-8 items-center">
-                    <div class="w-full md:w-1/2 aspect-[4/3] bg-white/40 border border-gray-300 rounded-md flex items-center justify-center shadow-sm backdrop-blur-sm">
-                        <img id="family-main-img" src="Family/Scan_20261023 (31).jpg" alt="Family Portrait" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
+                    <div class="w-full md:w-1/2 aspect-[4/4] bg-white/40 border border-gray-300 rounded-md flex items-center justify-center shadow-sm backdrop-blur-sm">
+                        <img src="Wedding/Scan_20261023 (11).png" alt="Family Portrait" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
                     </div>
                     <div class="w-full md:w-1/2">
                         <h3 class="text-2xl font-serif-custom text-black mb-4">Building a Life Together</h3>
                         <p class="text-gray-700 leading-relaxed font-light">
-                            Marriage brought new adventures. From their very first home to the chaotic, beautiful moments of raising a family, Joy and Raphael have always been each other's steadfast support. They've traveled, learned, and grown, proving that true love is about choosing each other every single day, no matter the circumstances.
+                            Marriage brought new adventures. From their very first home to the chaotic, beautiful moments of raising a family in the way of the faith, Joy and Raphael have always been each other's steadfast support. They've traveled, learned, and grown, proving that true love is about choosing each other every single day, no matter the circumstances.
                         </p>
                     </div>
                 </div>
@@ -226,13 +221,13 @@
 
                 <!-- Story Part 3: Image Left -->
                 <div class="flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-full md:w-1/2 aspect-[4/3] bg-white/40 border border-gray-300 rounded-md flex items-center justify-center shadow-sm backdrop-blur-sm">
-                        <img id="milestones-main-img" src="Milestones/Scan_20261023 (31).jpg" alt="Current Family" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
+                    <div class="w-full md:w-1/2 aspect-[4/4] bg-white/40 border border-gray-300 rounded-md flex items-center justify-center shadow-sm backdrop-blur-sm">
+                        <img src="Wedding/20250809_195415426_iOS.jpg" alt="Current Family" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
                     </div>
                     <div class="w-full md:w-1/2">
                         <h3 class="text-2xl font-serif-custom text-black mb-4">The Silver Milestone</h3>
                         <p class="text-gray-700 leading-relaxed font-light">
-                            Today, 25 years later, their bond is stronger and more brilliant than ever—just like silver. As they reflect on the memories made and look forward to the future, Joy and Raphael invite you to celebrate this incredible milestone of enduring love and partnership.
+                            Today, 25 years later, their bond is stronger and more brilliant than ever, just like silver! As they reflect on the memories made and look forward to the future, we celebrate Joy and Raphael on this incredible milestone of enduring love and partnership.
                         </p>
                     </div>
                 </div>
@@ -263,7 +258,7 @@
                     <h3 class="text-3xl font-serif-custom text-black hover:text-[#a8a9ad] transition-colors duration-300 mb-6 text-center cursor-default">Joy & Raphael - Through the Years</h3>
                     
                     <!-- Carousel Container -->
-                    <div class="relative w-full md:w-3/4 mx-auto aspect-video md:aspect-[16/14] border border-gray-300 rounded-sm overflow-hidden shadow-sm bg-white group">
+                    <div class="relative w-full md:w-3/4 mx-auto md:aspect-[4/4] border border-gray-300 rounded-md overflow-hidden shadow-sm bg-white group">
                         <img id="wedding-main-img" src="Wedding/WhatsApp Image 2026-10-26 at 11.47.37 AM.jpeg" alt="Wedding Memory" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
                         
                         <!-- Navigation Arrows -->
@@ -286,8 +281,8 @@
                     <h3 class="text-3xl font-serif-custom text-black hover:text-[#a8a9ad] transition-colors duration-300 mb-6 text-center cursor-default">Family Memories</h3>
                     
                     <!-- Carousel Container -->
-                    <div class="relative w-full md:w-3/4 mx-auto aspect-[square] md:aspect-square border border-gray-300 rounded-sm overflow-hidden shadow-sm bg-white group">
-                        <img id="milestones-main-img" src="Family/Scan_20261023 (31).jpg" alt="Family Memories" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
+                    <div class="relative w-full md:w-3/4 mx-auto md:aspect-[4/4] border border-gray-300 rounded-md overflow-hidden shadow-sm bg-white group">
+                        <img id="milestones-main-img" src="Family/Scan_20261023 (28).png" alt="Family Memories" class="w-full h-full object-cover transition-opacity duration-300 ease-in-out" style="opacity: 1;">
                         
                         <!-- Navigation Arrows -->
                         <button onclick="changeSlide('milestones', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 px-4 py-6 rounded-r shadow transition-all opacity-0 group-hover:opacity-100 hover:scale-105"><i class="fa-solid fa-chevron-left"></i></button>
@@ -407,18 +402,35 @@
 
     <!-- SPA & Sparkles Logic -->
     <script type="module">
+
+        const supabaseUrl = 'https://zqrorfjnixaetzflhkjg.supabase.co';
+        const supabaseKey = 'sb_publishable_6GHK3Ww6b9ktyuX50dYbfA_wboI38cW';
+        const _supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
         let allMessages = [];
 
         async function fetchMessages() {
-            const { data: { session } } = await _supabase.auth.getSession();
-            if (session) {
-                document.getElementById('admin-login-section').classList.add('hidden');
-                document.getElementById('admin-logout-btn').classList.remove('hidden');
-            } else {
-                document.getElementById('admin-login-section').classList.remove('hidden');
-                document.getElementById('admin-logout-btn').classList.add('hidden');
+            const gallery = document.getElementById('goodwill-gallery');
+
+            // 1. Safely check session without letting a stale token crash the message fetch
+            try {
+                const { data: { session }, error: sessionError } = await _supabase.auth.getSession();
+                if (sessionError) {
+                    console.warn("Session error, clearing stale auth:", sessionError);
+                    await _supabase.auth.signOut();
+                }
+                if (session) {
+                    document.getElementById('admin-login-section').classList.add('hidden');
+                    document.getElementById('admin-logout-btn').classList.remove('hidden');
+                } else {
+                    document.getElementById('admin-login-section').classList.remove('hidden');
+                    document.getElementById('admin-logout-btn').classList.add('hidden');
+                }
+            } catch (err) {
+                console.warn("Auth check failed:", err);
             }
 
+            // 2. Fetch goodwill messages
             const { data, error } = await _supabase
                 .from('goodwill_messages')
                 .select('*')
@@ -426,6 +438,7 @@
 
             if (error) {
                 console.error("Error fetching messages:", error);
+                gallery.innerHTML = `<div class="text-center text-red-500 italic py-8">Unable to load messages (${error.message}).</div>`;
                 return;
             }
 
@@ -460,8 +473,7 @@
         function renderMessages() {
             // Main Gallery (Approved Only - displayed in order uploaded)
             const gallery = document.getElementById('goodwill-gallery');
-            const approved = allMessages.filter(m => m.status === 'approved');
-            
+            const approved = allMessages.filter(m => m.status && m.status.trim().toLowerCase() === 'approved');            
             if (approved.length === 0) {
                 gallery.innerHTML = '<div class="text-center text-gray-500 italic py-8 cursor-default">No messages yet. Be the first to share one!</div>';
             } else {
@@ -481,8 +493,8 @@
 
             // Admin Panel (Pending Only)
             const adminList = document.getElementById('admin-pending-list');
-            const pending = allMessages.filter(m => m.status === 'pending');
-            
+            const pending = allMessages.filter(m => m.status && m.status.trim().toLowerCase() === 'pending');
+
             if (pending.length === 0) {
                 adminList.innerHTML = '<div class="text-center text-gray-500 italic py-4">No pending approvals.</div>';
             } else {
@@ -666,7 +678,7 @@
         // Images here
         const galleryData = {
             wedding: [
-                "Wedding/Scan_20261024 (32).png",
+                "Wedding/WhatsApp Image 2026-10-26 at 11.47.37 AM.jpeg",
                 "Wedding/Scan_20261025 (8).png",
                 "Wedding/Scan_20261023 (2).png",
                 "Wedding/Scan_20261023 (3).png",
@@ -675,6 +687,7 @@
                 "Wedding/Scan_20261023 (13).png",
                 "Wedding/Scan_20261023 (15).png",
                 "Wedding/Scan_20261023 (33).png",
+                "Wedding/Scan_20261024 (32).png",
                 "Wedding/Scan_20261024 (2).png",
                 "Wedding/Scan_20261024 (3).png",
                 "Wedding/Scan_20261024 (4).png",
@@ -682,7 +695,6 @@
                 "Wedding/Scan_20261024 (6).png",
                 "Wedding/Scan_20261024 (7).png",
                 "Wedding/Scan_20261024 (8).png",
-                "Wedding/WhatsApp Image 2026-10-26 at 11.47.37 AM.jpeg",
                 "Wedding/Scan_20261024 (9).png",
                 "Wedding/Scan_20261024 (10).png",
                 "Wedding/Scan_20261024 (11).png",
@@ -808,10 +820,91 @@
                 "Wedding/20250809_195432882_iOS.jpg",
             ],
             milestones: [
-                'Scan_20261023 (31).jpg',
-                'Scan_20261023 (30).jpg',
-                'milestone-3.jpg',
-                'milestone-4.jpg'
+                "Family/Scan_20261023 (24).png",
+                "Family/Scan_20261023 (23).png",
+                "Family/Scan_20261023 (22).png",
+                "Family/Scan_20261023 (20).png",
+                "Family/Scan_20261023 (19).png",
+                "Family/Scan_20261023 (18).png",
+                "Family/Scan_20261023 (17).png",
+                "Family/Scan_20261023 (16).png",
+                "Family/Scan_20261023 (14).png",
+                "Family/Us Bros.jpg",
+                "Family/Screenshot_20220619-113907_WhatsApp.jpg",
+                "Family/Screenshot_20220618-183935_Photos.jpg",
+                "Family/Mum and I.jpg",
+                "Family/IMG-20230516-WA0001.jpg",
+                "Family/IMG-20220515-WA0011.jpg",
+                "Family/IMG-20210407-WA0038.jpg",
+                "Family/IMG-20200529-WA0002.jpg",
+                "Family/IMG_20200818_174104_424.jpg",
+                "Family/Family Image (1).jpg",
+                "Family/20240601_191240000_iOS.jpg",
+                "Family/20240512_043858000_iOS 2.jpg",
+                "Family/20231217_213519.jpg",
+                "Family/20231021_202410.jpg",
+                "Family/20230708_122040.jpg",
+                "Family/20230531_211533.jpg",
+                "Family/20230525_200943.jpg",
+                "Family/20230515_131422(0).jpg",
+                "Family/20230512_224959.jpg",
+                "Family/20230511_184356.jpg",
+                "Family/20230325_124600.jpg",
+                "Family/20230226_133903.jpg",
+                "Family/20230226_133805.jpg",
+                "Family/20220712_115601.jpg",
+                "Family/20220702_124818.jpg",
+                "Family/20220514_122347.jpg",
+                "Family/20220514_120334.jpg",
+                "Family/20220417_133929.jpg",
+                "Family/20220305_174412.jpg",
+                "Family/20220305_134201.jpg",
+                "Family/20220206_111158.jpg",
+                "Family/20211226_160110.jpg",
+                "Family/20211220_194933.jpg",
+                "Family/20211210_185712.jpg",
+                "Family/20211128_120802.jpg",
+                "Family/20210808_174948 (1).jpg",
+                "Family/20210805_080251.jpg",
+                "Family/20210707_204633.jpg",
+                "Family/20210609_153658.jpg",
+                "Family/WhatsApp Image 2026-10-27 at 6.38.51 AM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 12.02.89 PM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 12.02.88 PM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 12.02.87 PM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 12.02.84 PM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 12.02.83 PM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 12.02.80 PM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 12.02.79 PM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 12.02.77 PM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 12.02.76 PM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 12.02.73 PM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 11.58.70 AM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 11.58.69 AM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 11.58.53 AM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 11.58.49 AM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 11.58.48 AM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 11.58.43 AM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 11.58.41 AM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 11.58.36 AM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 11.58.34 AM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 11.58.29 AM.jpeg",
+                "Family/WhatsApp Image 2026-10-26 at 7.50.47 AM.jpeg",
+                "Family/20260801_003728726_iOS.jpg",
+                "Family/20250809_195455433_iOS.jpg",
+                "Family/20240530_222100830_iOS.jpg",
+                "Family/20240524_150700313_iOS.jpg",
+                "Family/20240524_142151066_iOS.jpg",
+                "Family/Scan_20261025 (2).png",
+                "Family/Scan_20261023.png",
+                "Family/Scan_20261023 (34).png",
+                "Family/Scan_20261023 (32).png",
+                "Family/Scan_20261023 (31).png",
+                "Family/Scan_20261023 (30).png",
+                "Family/Scan_20261023 (29).png",
+                "Family/Scan_20261023 (28).png",
+                "Family/Scan_20261023 (26).png",
+                "Family/Scan_20261023 (25).png"
             ]
         };
 
